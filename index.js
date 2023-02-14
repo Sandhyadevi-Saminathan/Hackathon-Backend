@@ -16,7 +16,6 @@ const options = {
     max: 9999,
     integer: true
 }
-app.set("view engine", "ejs")
 const secret = process.env.SECRET;
 app.use(express.json());
 app.use(cors({
