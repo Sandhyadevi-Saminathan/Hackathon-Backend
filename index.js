@@ -200,7 +200,7 @@ app.post('/contact', authorize, async function (req, res) {
 
 
 //View Lead
-app.get('/contact', authorize, async function (req, res) {
+app.get('/lead', authorize, async function (req, res) {
     try {
         let connection = await mongoClient.connect(URL);
         let db = connection.db('crm');
@@ -256,7 +256,7 @@ app.put('/editlead/:id', authorize,
 
 
 //service request 
-app.post('/service', authorize, async function (req, res) {
+app.post('/rservice', authorize, async function (req, res) {
     try {
         let connection = await mongoClient.connect(URL);
         let db = connection.db('crm');
