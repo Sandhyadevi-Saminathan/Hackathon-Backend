@@ -20,7 +20,7 @@ app.set("view engine", "ejs")
 const secret = process.env.SECRET;
 app.use(express.json());
 app.use(cors({
-    origin: "https://tourmaline-longma-50f3a6.netlify.app/"
+    origin: "https://tourmaline-longma-50f3a6.netlify.app"
 }))
 
 
