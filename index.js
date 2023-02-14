@@ -82,6 +82,7 @@ app.get('/userlist', authorize, async function (req, res) {
         let db = connection.db('crm');
         let users = await db.collection("crmtask").find({}).toArray();
         res.json(users);
+        res.json({ message: "success" })
         await connection.close()
 
 
