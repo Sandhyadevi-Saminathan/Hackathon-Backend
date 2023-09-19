@@ -251,7 +251,7 @@ app.put('/editlead/:id', authorize,
             let user = await db.collection('contact').findOneAndUpdate({ _id: objId }, {
                 $set:
                 {
-                    fname: req.body.name,
+                    fname: req.body.fname,
                     email: req.body.email,
                     company: req.body.company,
                     status: req.body.status
