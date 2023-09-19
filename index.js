@@ -295,7 +295,19 @@ app.get('/service', authorize, async function (req, res) {
     }
 })
 
-
+//to delete service request
+app.delete('/srequest/:id', authorize, async function (req, res) {
+    try {
+        let connection = await mongoClient.connect(URL);
+        let db = connection.db('crm');
+        let objId = mongodb.ObjectId(req.params.id)
+        await db.collection("service").deleteOne({ _id: objId })
+        await connection.close();
+        res.json({ message: "Service deleted" });
+    } catch (error) {
+        console.log('error')
+    }
+})
 //view particular service request
 app.get('/servicedetails/:id', authorize, async (req, res) => {
     try {
