@@ -212,7 +212,19 @@ app.get('/lead', authorize, async function (req, res) {
     }
 })
 
-
+//to delete lead
+app.delete('/leads/:id', authorize, async function (req, res) {
+    try {
+        let connection = await mongoClient.connect(URL);
+        let db = connection.db('crm');
+        let objId = mongodb.ObjectId(req.params.id)
+        await db.collection("contact").deleteOne({ _id: objId })
+        await connection.close();
+        res.json({ message: "Lead deleted" });
+    } catch (error) {
+        console.log('error')
+    }
+})
 //View Particular Lead details
 app.get('/leaddetails/:id', authorize, async (req, res) => {
     try {
