@@ -5,6 +5,7 @@ const mongodb = require("mongodb");
 const dotenv = require("dotenv").config();
 const mongoClient = mongodb.MongoClient;
 const URL = process.env.DB;
+const password= process.env.password
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const nodemailer = require('nodemailer');
@@ -369,7 +370,7 @@ app.post('/mail', async function (req, res) {
                 secure: false,
                 auth: {
                     user: 'sandhyadevi0229@gmail.com',
-                    pass: 'guurmubpamqfohmf'
+                    pass: password
                 }
             });
 
